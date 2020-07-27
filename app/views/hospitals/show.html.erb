@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>PAC</th>
+        <th>Type</th>
+        <th>Visit Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @visits.each do |visit| %>
+        <tr>
+          <td><%= visit.pac %></td>
+          <td><%= visit.visit_type %></td>
+          <td class="visit_count"><%= visit.visit_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

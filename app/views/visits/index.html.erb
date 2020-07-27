@@ -1,0 +1,42 @@
+<div class="container">
+  <%= form_tag(nil, method: :get) do %>
+    <div class="form-group">
+      <%= label_tag(:type, "Type") %>
+      <%= select_tag(
+        :type,
+        options_for_select(type_options, selected_type),
+        class: "form-control"
+      ) %>
+    </div>
+
+    <button
+      id="search"
+      type="submit"
+      class="btn btn-primary"
+    >Submit</button>
+
+  <% end %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Hospital</th>
+        <th>PAC</th>
+        <th>Type</th>
+        <th>Patient</th>
+        <th>Birth Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @visits.each do |visit| %>
+        <tr>
+          <td><%= link_to(visit.hospital_name, hospital_path(visit.hospital_id))  %></td>
+          <td><%= visit.pac %></td>
+          <td><%= visit.visit_type %></td>
+          <td><%= visit.patient %></td>
+          <td><%= visit.patient_dob %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

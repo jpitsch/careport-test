@@ -1,0 +1,11 @@
+.git
+*.swp
+
+Dockerfile
+docker-compose*
+.env*
+.dockerignore
+
+postgres-data
+node_modules
+tmp
