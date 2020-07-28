@@ -19,16 +19,6 @@ RSpec.describe Visit do
         .to_not be_blank
     end
 
-    # Not sure this is even a type that is there since they are all hospitals
-    # context "when the visit is visit_type 1" do
-    #   subject { FactoryBot.create(:visit, visit_type: 1) }
-
-    #   it "is a Hospital" do
-    #     expect(subject.visit_type)
-    #       .to eq("Hospital")
-    #   end
-    # end
-
     context "when the visit is visit_type 2" do
       subject { FactoryBot.create(:visit, :snf) }
 
