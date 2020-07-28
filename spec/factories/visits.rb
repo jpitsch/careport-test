@@ -5,8 +5,9 @@ FactoryBot.define do
     admit_date { Faker::Date.between(from: Date.today - 2.years, to: Date.today) }
     hospital_name { Faker::Company.unique.name }
     sequence(:hospital_id) { |n| "hospital-#{n}" }
-    visit_type { 1 }
+    visit_type { (2..4).to_a.sample }
     pac { Faker::Company.unique.name }
+    codes { [{"code"=>"COVNEG", "name"=>"COV-19 test: negative"}, {"code"=>"COVSUS", "name"=>"Suspected covid by dx"}, {"code"=>"COVPOS", "name"=>"COV-19 test: positive"}] }
 
     trait :snf do
       visit_type { 2 }
