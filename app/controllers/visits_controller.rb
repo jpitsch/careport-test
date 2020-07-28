@@ -8,12 +8,11 @@ class VisitsController < ApplicationController
   end
 
   def type_options
-    [
-      ["All", nil],
-      ["SNF", 2],
-      ["Hospice", 3],
-      ["HHA", 4]
-    ]
+    [["All", nil]].tap do |arr|
+      Visit.pluck(:visit_type).uniq!.each do |type|
+        arr << type
+      end
+    end
   end
   helper_method :type_options
 

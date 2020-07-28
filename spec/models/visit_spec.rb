@@ -19,38 +19,29 @@ RSpec.describe Visit do
         .to_not be_blank
     end
 
-    context "when the visit is visit_type 1" do
-      subject { FactoryBot.create(:visit, visit_type: 1) }
-
-      it "is a hospital" do
-        expect(subject.type)
-          .to eq("hospital")
-      end
-    end
-
     context "when the visit is visit_type 2" do
-      subject { FactoryBot.create(:visit, visit_type: 2) }
+      subject { FactoryBot.create(:visit, :snf) }
 
       it "is a SNF" do
-        expect(subject.type)
+        expect(subject.visit_type)
           .to eq("SNF")
       end
     end
 
     context "when the visit is visit_type 3" do
-      subject { FactoryBot.create(:visit, visit_type: 3) }
+      subject { FactoryBot.create(:visit, :hospice) }
 
-      it "is a hospice" do
-        expect(subject.type)
-          .to eq("hospice")
+      it "is a Hospice" do
+        expect(subject.visit_type)
+          .to eq("Hospice")
       end
     end
 
     context "when the visit is visit_type 4" do
-      subject { FactoryBot.create(:visit, visit_type: 4) }
+      subject { FactoryBot.create(:visit, :hha) }
 
       it "is an HHA" do
-        expect(subject.type)
+        expect(subject.visit_type)
           .to eq("HHA")
       end
     end

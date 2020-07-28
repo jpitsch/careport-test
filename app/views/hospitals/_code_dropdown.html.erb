@@ -1,0 +1,17 @@
+<%= form_tag(nil, method: :get) do %>
+    <div class="form-group">
+      <%= label_tag(:code, "Tracking Code") %>
+      <%= select_tag(
+        :code,
+        options_for_select(code_options, selected_code),
+        class: "form-control"
+      ) %>
+    </div>
+
+    <button
+      id="search"
+      type="submit"
+      class="btn btn-primary"
+    >Submit</button>
+
+<% end %>
